@@ -1,0 +1,70 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>D:\\logo\\output.log</file>
+        <append>false</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>%-4relative %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="EXCEPTIONSFILE" class="ch.qos.logback.core.FileAppender">
+        <file>D:\\logo\\exceptions.log</file>
+        <append>false</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>%-4relative %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="DUPLICATESFILE" class="ch.qos.logback.core.FileAppender">
+        <file>D:\\logo\\duplicates.log</file>
+        <append>false</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>%-4relative %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="METHODDECLARATIONSFILE" class="ch.qos.logback.core.FileAppender">
+        <file>D:\\logo\\methodDec.log</file>
+        <append>false</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>%-4relative %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="METHODCALLSFILE" class="ch.qos.logback.core.FileAppender">
+        <file>D:\\logo\\methodCall.log</file>
+        <append>false</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>%-4relative %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="methodDec" level="DEBUG" additivity="false">
+        <appender-ref ref="METHODDECLARATIONSFILE"/>
+    </logger>
+    <logger name="methodCall" level="DEBUG" additivity="false">
+        <appender-ref ref="METHODCALLSFILE"/>
+    </logger>
+
+
+    <logger name="analytics" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE"/>
+    </logger>
+    <logger name="exceptions" level="DEBUG" additivity="false">
+        <appender-ref ref="EXCEPTIONSFILE"/>
+    </logger>
+    <logger name="duplicates" level="DEBUG" additivity="false">
+        <appender-ref ref="DUPLICATESFILE"/>
+    </logger>
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
